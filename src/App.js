@@ -1,25 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import SliderList from "./ahp/SliderList";
 
-function App() {
+const App = () => {
+  const items = ["Witcher", "Cyberpunk", "Rdr2", "Gta"];
+  const criterias = ["Graphics", "Story", "Price"];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <SliderList items={items} criterias={criterias} />
     </div>
   );
-}
+};
 
 export default App;
