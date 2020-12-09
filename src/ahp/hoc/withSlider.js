@@ -2,30 +2,30 @@ import React from "react";
 import { connect } from "react-redux";
 
 const withSlider = (WrappedComponent, settings) => {
-  const { initValue, leftComp, rightComp, update } = settings;
+  const { initValue, update } = settings;
 
   return connect(mapStateToProps, { update })((props) => {
     const [value, setValue] = React.useState(initValue);
     const [min, max] = [-8, 8];
 
     React.useEffect(() => {
-      props.update(leftComp, rightComp, initValue);
+      props.update(props.leftComp, props.rightComp, initValue);
     }, []);
 
     const marks = [
       {
         value: min,
-        label: leftComp,
+        label: props.leftComp,
       },
       {
         value: max,
-        label: rightComp,
+        label: props.rightComp,
       },
     ];
 
     const handleChange = (e, newValue) => {
       setValue(newValue);
-      props.update(leftComp, rightComp, newValue);
+      props.update(props.leftComp, props.rightComp, newValue);
     };
 
     return (
